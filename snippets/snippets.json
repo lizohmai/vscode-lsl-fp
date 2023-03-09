@@ -4048,7 +4048,40 @@
         ],
         "description": "llTargetedEmail( integer target, string subject, string message );\n\n119 Function ID\n20.0 Forced Delay\n10.0 Energy\n\nSends an email to the owner or creator (selected by target) of an object with subject and message.\n• integer target\n• string subject\n• string message\nThe entire message (including the address, subject and other miscellaneous fields) can't be longer than 4096 bytes combined.\n"
     },
-    
+  
+    "llReplaceSubString": {
+        "prefix": "llReplaceSubString",
+        "body": [
+           "llReplaceSubString(${1:string src}, ${2:string pattern}, ${3:string replacement_pattern}, ${4:integer count});$0"
+        ],
+        "description": "llReplaceSubString( string src, string pattern, string replacement_pattern, integer count );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the result of replacing the first count matching instances pattern in src with replacement_pattern.\n• string src\n• string pattern\n• string replacement_pattern\n• integer count\n\nIf count = 0, all matching substrings are replaced.\nIf count > 0, substrings are replaced starting from the left/beginning of src.\nIf count < 0, substrings are replaced starting from the right/end of src.\n",
+        "version": "2023-01-27.577942"
+    },
+    "llVerifyRSA": {
+        "prefix": "llVerifyRSA",
+        "body": [
+           "llVerifyRSA(${1:string public_key}, ${2:string msg}, ${3:string signature}, ${4:string algorithm});$0"
+        ],
+        "description": "llVerifyRSA( string public_key, string msg, string signature, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns an integer indicating whether the RSA signature is valid for msg when using hash algorithm algorithm and public RSA key public_key. Returns TRUE if the signature is verified, and FALSE otherwise. Can be paired with llSignRSA to validate the authenticity of messages from other LSL scripts.\n• string public_key\n• string msg\n• string signature\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
+        "version": "2023-01-27.577942"
+    },    
+    "llSignRSA": {
+        "prefix": "llSignRSA",
+        "body": [
+           "llSignRSA(${1:string private_key}, ${2:string msg}, ${3:string algorithm});$0"
+        ],
+        "description": "llSignRSA( string private_key, string msg, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the Base64-encoded RSA signature of msg when using hash algorithm algorithm and secret key private_key. Can be paired with llVerifyRSA to pass verifiable messages.\n• string private_key\n• string msg\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
+        "version": "2023-01-27.577942"
+    },
+    "llHMAC": {
+        "prefix": "llHMAC",
+        "body": [
+           "llHMAC(${1:string private_key}, ${2:string msg}, ${3:string algorithm});$0"
+        ],
+        "description": "llHMAC( string private_key, string msg, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the Base64-encoded HMAC hash of msg when using hash algorithm algorithm and secret key private_key.\n• string private_key\n• string msg\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
+        "version": "2023-01-27.577942"
+    },
+
     "ACTIVE": {
         "prefix": "ACTIVE",
         "body": [
@@ -8916,5 +8949,14 @@
            "SERVICE_ERROR$0"
         ],
         "description": "There was an error connecting to the back-end service"
+    },
+
+    "SIM_STAT_CHILD_AGENT_COUNT": {
+        "prefix": "SIM_STAT_CHILD_AGENT_COUNT",
+        "body": [
+           "SIM_STAT_CHILD_AGENT_COUNT$0"
+        ],
+        "description": "Number of child (neighboring) agents in region",
+        "version": "2023-01-27.577942"
     }
 }
