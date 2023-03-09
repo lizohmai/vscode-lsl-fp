@@ -4082,6 +4082,47 @@
         "version": "2023-01-27.577942"
     },
 
+    "llLinkAdjustSoundVolume": {
+        "prefix": "llLinkAdjustSoundVolume",
+        "body": [
+           "llLinkAdjustSoundVolume(${1|LINK_ROOT,LINK_SET,LINK_ALL_OTHERS,LINK_ALL_CHILDREN,LINK_THIS|}, ${2:float volume});$0"
+        ],
+        "description": "llLinkAdjustSoundVolume( integer link, float volume );\n\n? Function ID\n0.1 Forced Delay\n10.0 Energy\n\nAdjusts volume of attached sound.\n• integer link - Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag\n• float volume – between 0.0 (silent) and 1.0 (loud) (0.0 <= volume <= 1.0)\n",
+        "version": "2023-01-11.577595"
+    },
+    "llLinkSetSoundRadius": {
+        "prefix": "llLinkSetSoundRadius",
+        "body": [
+           "llLinkSetSoundRadius(${1|LINK_ROOT,LINK_SET,LINK_ALL_OTHERS,LINK_ALL_CHILDREN,LINK_THIS|}, ${2:float radius});$0"
+        ],
+        "description": "llLinkSetSoundRadius( integer link, float radius );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nEstablishes a hard cut-off radius for audibility of scripted sounds (both attached and triggered).\n• integer link - Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag\n• float radius – in meters\n",
+        "version": "2023-01-11.577595"
+    },
+    "llLinkStopSound": {
+        "prefix": "llLinkStopSound",
+        "body": [
+           "llLinkStopSound(${1|LINK_ROOT,LINK_SET,LINK_ALL_OTHERS,LINK_ALL_CHILDREN,LINK_THIS|});$0"
+        ],
+        "description": "llLinkStopSound( integer link );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nStops the attached sound(s) currently playing, if they were started by llLoopSound\n• integer link - Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag\n",
+        "version": "2023-01-11.577595"
+    },
+    "llLinkSetSoundQueueing": {
+        "prefix": "llLinkSetSoundQueueing",
+        "body": [
+           "llLinkSetSoundQueueing(${1|LINK_ROOT,LINK_SET,LINK_ALL_OTHERS,LINK_ALL_CHILDREN,LINK_THIS|}, ${2|TRUE,FALSE|});$0"
+        ],
+        "description": "llLinkSetSoundQueueing( integer link, integer queue );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nSet whether attached sounds wait for the current sound to finish. If queue is TRUE, queuing is enabled, if FALSE queuing is disabled. Sound queuing is disabled by default.\n• integer link - Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag\n• integer queue – boolean, sound queuing: TRUE enables, FALSE (default) disables\n",
+        "version": "2023-01-11.577595"
+    },
+    "llLinkPlaySound": {
+        "prefix": "llLinkPlaySound",
+        "body": [
+           "llLinkPlaySound(${1|LINK_ROOT,LINK_SET,LINK_ALL_OTHERS,LINK_ALL_CHILDREN,LINK_THIS|}, ${2:string sound}, ${3:float volume}, ${4|SOUND_PLAY,SOUND_LOOP,SOUND_TRIGGER,SOUND_SYNC|});$0"
+        ],
+        "description": "llLinkPlaySound( integer link, string sound, float volume, integer flags );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nPlays attached sound once at volume\n• integer link - Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag\n• string sound – a sound in the inventory of the prim this script is in or a UUID of a sound\n• float volume – between 0.0 (silent) and 1.0 (loud) (0.0 <= volume <= 1.0)\n• integer flags - bit flags used to control how the sound is played.\n",
+        "version": "2023-01-11.577595"
+    },
+
     "ACTIVE": {
         "prefix": "ACTIVE",
         "body": [
@@ -8958,5 +8999,38 @@
         ],
         "description": "Number of child (neighboring) agents in region",
         "version": "2023-01-27.577942"
-    }
+    },
+
+    "SOUND_PLAY": {
+        "prefix": "SOUND_PLAY",
+        "body": [
+           "SOUND_PLAY$0"
+        ],
+        "description": "Plays the sound once, attached to the linked primitive.",
+        "version": "2023-01-11.577595"
+    },
+    "SOUND_LOOP": {
+        "prefix": "SOUND_LOOP",
+        "body": [
+           "SOUND_LOOP$0"
+        ],
+        "description": "Loops the sound attached to the linked primitive.",
+        "version": "2023-01-11.577595"
+    },
+    "SOUND_TRIGGER": {
+        "prefix": "SOUND_TRIGGER",
+        "body": [
+           "SOUND_TRIGGER$0"
+        ],
+        "description": "Triggers the sound at the location of the linked prim. The sound is not attached and does not move with the prim. If this flag is set it overrides all others.",
+        "version": "2023-01-11.577595"
+    },
+    "SOUND_SYNC": {
+        "prefix": "SOUND_SYNC",
+        "body": [
+           "SOUND_SYNC$0"
+        ],
+        "description": "Synchronizes sound playback to the nearest sound master. Please see llLoopSoundMaster.",
+        "version": "2023-01-11.577595"
+    } 
 }
