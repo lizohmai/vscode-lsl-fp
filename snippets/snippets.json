@@ -4241,6 +4241,23 @@
         "version": "2022-10-07.575585"
     },
 
+    "llReplaceEnvironment": {
+        "prefix": "llReplaceEnvironment",
+        "body": [
+           "llReplaceEnvironment(${1:vector position}, ${2:string environment}, ${3:integer track_no}, ${4:integer day_length}, ${5:integer day_offset});$0"
+        ],
+        "description": "integer llReplaceEnvironment( vector position, string environment, integer track_no, integer day_length, integer day_offset );\n\n? Function ID\nForced Delay\nEnergy\n\nThe function replaces the environment in a parcel or a region. Either for a single elevation track or the entire environment. The owner of the script must have permission to edit the environment on the destination parcel, or be an estate manage in the case of an entire region. In most cases errors are reported as a return value from the function (see table below). However, issues with the environment assets may be reported in the debug chat.\n• vector position – the position in the region of the parcel that will receive the new environment. To change the entire region use <-1, -1, -1>. The z component of the vector is ignored.\n• string environment – the name of an environmental setting in the object's inventory or the asset ID for an environment. NULL_KEY or empty string to remove the environment.\n• integer track_no – the elevation zone to change. 0 for water, 1 for ground level, 2 for sky 1000m, 3 for sky 2000m, 4 for sky 3000m. -1 to change all tracks.\n• integer day_length – the length in seconds for the day cycle. -1 to leave unchanged.\n• integer day_offset – the offset in seconds from UTC. -1 to leave unchanged.\n",
+        "version": "2022-08-12.574216"
+    },
+    "llSetEnvironment": {
+        "prefix": "llSetEnvironment",
+        "body": [
+           "llSetEnvironment(${1:vector position}, ${2:list params});$0"
+        ],
+        "description": "integer llSetEnvironment( vector position, list params );\n\n? Function ID\nForced Delay\nEnergy\n\nThis function overrides the environmental settings for a region or a parcel. The owner of the script must have permission to modify the environment on the parcel or be an estate manager to change the entire region. An override for a given parameter can be set at the region scope or parcel scope. It can also be set for a single sky track, all sky tracks, or both. If an override of a given parameter is specified for both an individual track and all tracks, the individual track's override takes priority.\n• vector position – the location on the region of the parcel to be changed. Use <-1, -1, z> for the entire region. The z-component specifies which sky track to change, based on elevation. Use z=-1 to set an override on the special 'all tracks' slot.\n• list params – a list of parameters to change for the parcel or region. Passing an empty list will remove any modifications from previous calls to llSetEnvironment.\n",
+        "version": "2022-08-12.574216"
+    },
+
     "ACTIVE": {
         "prefix": "ACTIVE",
         "body": [
@@ -9232,6 +9249,38 @@
         ],
         "description": "Delete and do not return object if it cannot enter a parcel",
         "version": "2022-08-25.574611"
-    }
+    },
 
+    "ENV_INVALID_RULE": {
+        "prefix": "ENV_INVALID_RULE",
+        "body": [
+           "ENV_INVALID_RULE$0"
+        ],
+        "description": "There was an issue with one of the rules.",
+        "version": "2022-08-12.574216"
+    }, 
+    "ENV_VALIDATION_FAIL": {
+        "prefix": "ENV_VALIDATION_FAIL",
+        "body": [
+           "ENV_VALIDATION_FAIL$0"
+        ],
+        "description": "Unable to validate values passed.",
+        "version": "2022-08-12.574216"
+    },
+    "ENV_THROTTLE": {
+        "prefix": "ENV_THROTTLE",
+        "body": [
+           "ENV_THROTTLE$0"
+        ],
+        "description": "The scripts have exceeded the throttle. Wait and retry the request.",
+        "version": "2022-08-12.574216"
+    },
+    "ENV_NO_PERMISSIONS": {
+        "prefix": "ENV_NO_PERMISSIONS",
+        "body": [
+           "ENV_NO_PERMISSIONS$0"
+        ],
+        "description": "The script does not have rights to modify this parcel or region.",
+        "version": "2022-08-12.574216"
+    }
 }
