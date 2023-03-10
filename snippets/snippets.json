@@ -4258,6 +4258,15 @@
         "version": "2022-08-12.574216"
     },
 
+    "llGetVisualParams": {
+        "prefix": "llGetVisualParams",
+        "body": [
+           "llGetVisualParams(${1:key agentid}, ${2:list params});$0"
+        ],
+        "description": "list llGetVisualParams( key agentid, list params );\n\n? Function ID\nForced Delay\n10.0 Energy\n\nReturns a list of the details for agentid requested in params.\n• key agentid – avatar ID in the same region.\n• list params – list of visual param ids or names.\n\nAn empty list if agentid is not found. An empty string, \"\", is returned in the place of any invalid or unknown visual parameter.\n",
+        "version": "2022-04-21.571166"
+    },
+
     "ACTIVE": {
         "prefix": "ACTIVE",
         "body": [
@@ -6006,147 +6015,147 @@
         "body": [
            "OBJECT_ATTACHED_POINT$0"
         ],
-        "description": "OBJECT_ATTACHED_POINT"
+        "description": "Gets the attachment point to which the object is attached."
     },
     "OBJECT_ATTACHED_SLOTS_AVAILABLE": {
         "prefix": "OBJECT_ATTACHED_SLOTS_AVAILABLE",
         "body": [
            "OBJECT_ATTACHED_SLOTS_AVAILABLE$0"
         ],
-        "description": "OBJECT_ATTACHED_SLOTS_AVAILABLE"
+        "description": "Gets the avatar's available attachment slot count.\nIf id is not an avatar, 0 is returned."
     },
     "OBJECT_BODY_SHAPE_TYPE": {
         "prefix": "OBJECT_BODY_SHAPE_TYPE",
         "body": [
            "OBJECT_BODY_SHAPE_TYPE$0"
         ],
-        "description": "OBJECT_BODY_SHAPE_TYPE"
+        "description": "Gets a float which describes the sex setting of the avatar's currently worn shape.\nIf id is not an avatar, -1.0 is returned.\nNormal operational values are in the range [0.0, 1.0].\n0.0 is standard female setting,\n1.0 is standard male setting.\nIntermediate values with visible differences are possible with manually crafted shapes."
     },
     "OBJECT_CHARACTER_TIME": {
         "prefix": "OBJECT_CHARACTER_TIME",
         "body": [
            "OBJECT_CHARACTER_TIME$0"
         ],
-        "description": "OBJECT_CHARACTER_TIME"
+        "description": "Gets the average CPU time (in seconds) used by the object for navigation, if the object is a pathfinding character. Returns 0 for non-characters."
     },
     "OBJECT_CLICK_ACTION": {
         "prefix": "OBJECT_CLICK_ACTION",
         "body": [
            "OBJECT_CLICK_ACTION$0"
         ],
-        "description": "OBJECT_CLICK_ACTION"
+        "description": "Gets the Click Action of the prim."
     },
     "OBJECT_CREATOR": {
         "prefix": "OBJECT_CREATOR",
         "body": [
            "OBJECT_CREATOR$0"
         ],
-        "description": "OBJECT_CREATOR"
+        "description": "Gets the prim's creator key.\nIf id is an avatar, a NULL_KEY is returned."
     },
     "OBJECT_DESC": {
         "prefix": "OBJECT_DESC",
         "body": [
            "OBJECT_DESC$0"
         ],
-        "description": "OBJECT_DESC"
+        "description": "Gets the prim's description.\nIf id is an avatar, an empty string is returned."
     },
     "OBJECT_GROUP": {
         "prefix": "OBJECT_GROUP",
         "body": [
            "OBJECT_GROUP$0"
         ],
-        "description": "OBJECT_GROUP"
+        "description": "Gets the prim's group key.\nIf id is an avatar, a NULL_KEY is returned.[1]"
     },
     "OBJECT_HOVER_HEIGHT": {
         "prefix": "OBJECT_HOVER_HEIGHT",
         "body": [
            "OBJECT_HOVER_HEIGHT$0"
         ],
-        "description": "OBJECT_HOVER_HEIGHT"
+        "description": "Gets the hover height of the avatar.\nIf id is not an avatar, 0.0 is returned. Normal values are in the range [-2.0, 2.0] with a default of 0.0. This value does not reflect the avatar shape's \"Hover\" slider, only the dynamic viewer setting."
     },
     "OBJECT_LAST_OWNER_ID": {
         "prefix": "OBJECT_LAST_OWNER_ID",
         "body": [
            "OBJECT_LAST_OWNER_ID$0"
         ],
-        "description": "OBJECT_LAST_OWNER_ID"
+        "description": "Gets the UUID of the object's previous owner, if known. For group-owned objects, this is the avatar that deeded the object."
     },
     "OBJECT_NAME": {
         "prefix": "OBJECT_NAME",
         "body": [
            "OBJECT_NAME$0"
         ],
-        "description": "OBJECT_NAME"
+        "description": "Gets the prim's name.\nIf id is an avatar, the Legacy Name is returned."
     },
     "OBJECT_OMEGA": {
         "prefix": "OBJECT_OMEGA",
         "body": [
            "OBJECT_OMEGA$0"
         ],
-        "description": "OBJECT_OMEGA"
+        "description": "Gets the object's rotational velocity (radians per second)."
     },
     "OBJECT_OWNER": {
         "prefix": "OBJECT_OWNER",
         "body": [
            "OBJECT_OWNER$0"
         ],
-        "description": "OBJECT_OWNER"
+        "description": "Gets an object's owner key.\nIf id is an avatar, that avatar's key is returned (which is the same as id).\nIf id is group-owned, a NULL_KEY is returned."
     },
     "OBJECT_PATHFINDING_TYPE": {
         "prefix": "OBJECT_PATHFINDING_TYPE",
         "body": [
            "OBJECT_PATHFINDING_TYPE$0"
         ],
-        "description": "OBJECT_PATHFINDING_TYPE"
+        "description": "Gets the pathfinding setting of the object in the region. It returns an integer matching one of the OPT_* constants."
     },
     "OBJECT_PHANTOM": {
         "prefix": "OBJECT_PHANTOM",
         "body": [
            "OBJECT_PHANTOM$0"
         ],
-        "description": "OBJECT_PHANTOM"
+        "description": "Gets the integer boolean detailing if phantom is enabled or disabled on the object.\nIf id is an avatar or attachment, 0 is returned."
     },
     "OBJECT_PHYSICS": {
         "prefix": "OBJECT_PHYSICS",
         "body": [
            "OBJECT_PHYSICS$0"
         ],
-        "description": "OBJECT_PHYSICS"
+        "description": "Gets the integer boolean detailing if physics is enabled or disabled on the object.\nIf id is an avatar or attachment, 0 is returned."
     },
     "OBJECT_PHYSICS_COST": {
         "prefix": "OBJECT_PHYSICS_COST",
         "body": [
            "OBJECT_PHYSICS_COST$0"
         ],
-        "description": "OBJECT_PHYSICS_COST"
+        "description": "Gets the physics cost of the object."
     },
     "OBJECT_POS": {
         "prefix": "OBJECT_POS",
         "body": [
            "OBJECT_POS$0"
         ],
-        "description": "OBJECT_POS"
+        "description": "Gets the prim's position in region coordinates.\nIf id is an avatar outside the region (see above), this position is relative to the region the script is running in."
     },
     "OBJECT_PRIM_COUNT": {
         "prefix": "OBJECT_PRIM_COUNT",
         "body": [
            "OBJECT_PRIM_COUNT$0"
         ],
-        "description": "OBJECT_PRIM_COUNT"
+        "description": "Gets the object's prim count."
     },
     "OBJECT_PRIM_EQUIVALENCE": {
         "prefix": "OBJECT_PRIM_EQUIVALENCE",
         "body": [
            "OBJECT_PRIM_EQUIVALENCE$0"
         ],
-        "description": "OBJECT_PRIM_EQUIVALENCE"
+        "description": "Gets the prim equivalence of the object."
     },
     "OBJECT_RENDER_WEIGHT": {
         "prefix": "OBJECT_RENDER_WEIGHT",
         "body": [
            "OBJECT_RENDER_WEIGHT$0"
         ],
-        "description": "OBJECT_RENDER_WEIGHT"
+        "description": "Gets the avatar's render weight.\nIf id is an object, 0 is returned. If id is an avatar whose render weight is unknown to the simulator, -1 is returned. The maximum render weight reported by the server is 500000."
     },
     "OBJECT_RETURN_PARCEL": {
         "prefix": "OBJECT_RETURN_PARCEL",
@@ -6174,77 +6183,77 @@
         "body": [
            "OBJECT_ROOT$0"
         ],
-        "description": "OBJECT_ROOT"
+        "description": "Gets the id of the root prim of the object requested.\nIf id is an avatar, returns the id of the root prim of the linkset the avatar is sitting on and linked to (or the avatar's own id if the avatar is not sitting on an object within the region)."
     },
     "OBJECT_ROT": {
         "prefix": "OBJECT_ROT",
         "body": [
            "OBJECT_ROT$0"
         ],
-        "description": "OBJECT_ROT"
+        "description": "Gets the prim's rotation."
     },
     "OBJECT_RUNNING_SCRIPT_COUNT": {
         "prefix": "OBJECT_RUNNING_SCRIPT_COUNT",
         "body": [
            "OBJECT_RUNNING_SCRIPT_COUNT$0"
         ],
-        "description": "OBJECT_RUNNING_SCRIPT_COUNT"
+        "description": "Gets the number of running scripts attached to the object or agent."
     },
     "OBJECT_SCRIPT_MEMORY": {
         "prefix": "OBJECT_SCRIPT_MEMORY",
         "body": [
            "OBJECT_SCRIPT_MEMORY$0"
         ],
-        "description": "OBJECT_SCRIPT_MEMORY"
+        "description": "Gets the total amount of script memory allocated to the object or agent, in bytes."
     },
     "OBJECT_SCRIPT_TIME": {
         "prefix": "OBJECT_SCRIPT_TIME",
         "body": [
            "OBJECT_SCRIPT_TIME$0"
         ],
-        "description": "OBJECT_SCRIPT_TIME"
+        "description": "Gets the total amount of average script CPU time used by the object or agent, in seconds."
     },
     "OBJECT_SELECT_COUNT": {
         "prefix": "OBJECT_SELECT_COUNT",
         "body": [
            "OBJECT_SELECT_COUNT$0"
         ],
-        "description": "OBJECT_SELECT_COUNT"
+        "description": "Gets the total number of agents selecting any links in the object.\nIf id is an avatar, 0 is returned."
     },
     "OBJECT_SERVER_COST": {
         "prefix": "OBJECT_SERVER_COST",
         "body": [
            "OBJECT_SERVER_COST$0"
         ],
-        "description": "OBJECT_SERVER_COST"
+        "description": "Gets the server cost of the object."
     },
     "OBJECT_STREAMING_COST": {
         "prefix": "OBJECT_STREAMING_COST",
         "body": [
            "OBJECT_STREAMING_COST$0"
         ],
-        "description": "OBJECT_STREAMING_COST"
+        "description": "Gets the streaming (download) cost of the object."
     },
     "OBJECT_TEMP_ON_REZ": {
         "prefix": "OBJECT_TEMP_ON_REZ",
         "body": [
            "OBJECT_TEMP_ON_REZ$0"
         ],
-        "description": "OBJECT_TEMP_ON_REZ"
+        "description": "Gets the integer boolean detailing if temporary is enabled or disabled on the object."
     },
     "OBJECT_TOTAL_INVENTORY_COUNT": {
         "prefix": "OBJECT_TOTAL_INVENTORY_COUNT",
         "body": [
            "OBJECT_TOTAL_INVENTORY_COUNT$0"
         ],
-        "description": "OBJECT_TOTAL_INVENTORY_COUNT"
+        "description": "Gets the object's total number of inventory items."
     },
     "OBJECT_TOTAL_SCRIPT_COUNT": {
         "prefix": "OBJECT_TOTAL_SCRIPT_COUNT",
         "body": [
            "OBJECT_TOTAL_SCRIPT_COUNT$0"
         ],
-        "description": "OBJECT_TOTAL_SCRIPT_COUNT"
+        "description": "Gets the number of scripts, both running and stopped, attached to the object or agent."
     },
     "OBJECT_UNKNOWN_DETAIL": {
         "prefix": "OBJECT_UNKNOWN_DETAIL",
@@ -6258,7 +6267,7 @@
         "body": [
            "OBJECT_VELOCITY$0"
         ],
-        "description": "OBJECT_VELOCITY"
+        "description": "Gets the object's velocity."
     },
     "OPT_CHARACTER": {
         "prefix": "OPT_CHARACTER",
@@ -9282,5 +9291,192 @@
         ],
         "description": "The script does not have rights to modify this parcel or region.",
         "version": "2022-08-12.574216"
+    },
+
+    "PARCEL_DETAILS_PRIM_CAPACITY": {
+        "prefix": "PARCEL_DETAILS_PRIM_CAPACITY",
+        "body": [
+           "PARCEL_DETAILS_PRIM_CAPACITY$0"
+        ],
+        "description": "This parcel's prim capacity.",
+        "version": "unknown"
+    },
+    "PARCEL_DETAILS_PRIM_USED": {
+        "prefix": "PARCEL_DETAILS_PRIM_USED",
+        "body": [
+           "PARCEL_DETAILS_PRIM_USED$0"
+        ],
+        "description": "The prim usage on this parcel.",
+        "version": "unknown"
+    },
+    "PARCEL_DETAILS_LANDING_POINT": {
+        "prefix": "PARCEL_DETAILS_LANDING_POINT",
+        "body": [
+           "PARCEL_DETAILS_LANDING_POINT$0"
+        ],
+        "description": "Landing point set for this parcel, if any.",
+        "version": "2022-04-21.571166"
+    },
+    "PARCEL_DETAILS_LANDING_LOOKAT": {
+        "prefix": "PARCEL_DETAILS_LANDING_LOOKAT",
+        "body": [
+           "PARCEL_DETAILS_LANDING_LOOKAT$0"
+        ],
+        "description": "Look at vector set for the landing point on this parcel, if any.",
+        "version": "2022-04-21.571166"
+    },
+    "PARCEL_DETAILS_TP_ROUTING": {
+        "prefix": "PARCEL_DETAILS_TP_ROUTING",
+        "body": [
+           "PARCEL_DETAILS_TP_ROUTING$0"
+        ],
+        "description": "Teleport routing for this parcel.\n0 = TP_ROUTING_BLOCKED\n1 = TP_ROUTING_LANDINGP\n2 = TP_ROUTING_FREE\nNote that routing rules are only enforced if the landing point is set.",
+        "version": "2022-04-21.571166"
+    },
+    "PARCEL_DETAILS_FLAGS": {
+        "prefix": "PARCEL_DETAILS_FLAGS",
+        "body": [
+           "PARCEL_DETAILS_FLAGS$0"
+        ],
+        "description": "Parcel flags set for this parcel.\nSee llGetParcelFlags for a listing of the flags and their meaning.",
+        "version": "2022-04-21.571166"
+    },
+    "PARCEL_DETAILS_SCRIPT_DANGER": {
+        "prefix": "PARCEL_DETAILS_SCRIPT_DANGER",
+        "body": [
+           "PARCEL_DETAILS_SCRIPT_DANGER$0"
+        ],
+        "description": "Is the script in danger in the indicated parcel.\nSee llScriptDanger for a discussion of script danger.",
+        "version": "2022-04-21.571166"
+    },
+    "OBJECT_REZZER_KEY": {
+        "prefix": "OBJECT_REZZER_KEY",
+        "body": [
+           "OBJECT_REZZER_KEY$0"
+        ],
+        "description": "Gets the key of the object that rezzed this object be it an object or an avatar.",
+        "version": "unknown"
+    },
+    "OBJECT_GROUP_TAG": {
+        "prefix": "OBJECT_GROUP_TAG",
+        "body": [
+           "OBJECT_GROUP_TAG$0"
+        ],
+        "description": "Gets the avatar's group tag text.\nIf id is not an avatar, an empty string is returned.",
+        "version": "unknown"
+    },
+    "OBJECT_TEMP_ATTACHED": {
+        "prefix": "OBJECT_TEMP_ATTACHED",
+        "body": [
+           "OBJECT_TEMP_ATTACHED$0"
+        ],
+        "description": "Gets the integer boolean detailing if the object is temporarily attached.",
+        "version": "unknown"
+    },
+    "OBJECT_CREATION_TIME": {
+        "prefix": "OBJECT_CREATION_TIME",
+        "body": [
+           "OBJECT_CREATION_TIME$0"
+        ],
+        "description": "Gets the object's creation time. This time is established with raw material rezzing through the build menu and with mesh uploads.\nThis time is NOT established with inventory rezzes, scripted rezzes, object modifying, copying or transferring.\nIf id is an avatar, an empty string is returned.",
+        "version": "unknown"
+    },
+    "OBJECT_SIT_COUNT": {
+        "prefix": "OBJECT_SIT_COUNT",
+        "body": [
+           "OBJECT_SIT_COUNT$0"
+        ],
+        "description": "Gets the total number of agents sitting on any links in the object.\nIf id is an avatar, 0 is returned.",
+        "version": "unknown"
+    },
+    "OBJECT_ANIMATED_COUNT": {
+        "prefix": "OBJECT_ANIMATED_COUNT",
+        "body": [
+           "OBJECT_ANIMATED_COUNT$0"
+        ],
+        "description": "Gets the integer boolean detailing if the object's root is set to \"Animated Mesh\" or gets the total number of \"Animated Mesh\" attachments worn by an agent.",
+        "version": "unknown"
+    },
+    "OBJECT_ANIMATED_SLOTS_AVAILABLE": {
+        "prefix": "OBJECT_ANIMATED_SLOTS_AVAILABLE",
+        "body": [
+           "OBJECT_ANIMATED_SLOTS_AVAILABLE$0"
+        ],
+        "description": "Gets the avatar's available \"Animated Mesh\" attachment slot count.\nIf id is not an avatar, 0 is returned.",
+        "version": "unknown"
+    },
+
+    "OBJECT_MATERIAL": {
+        "prefix": "OBJECT_MATERIAL",
+        "body": [
+           "OBJECT_MATERIAL$0"
+        ],
+        "description": "Gets the physics material set on this object.",
+        "version": "2022-04-21.571166"
+    },
+    "OBJECT_MASS": {
+        "prefix": "OBJECT_MASS",
+        "body": [
+           "OBJECT_MASS$0"
+        ],
+        "description": "Gets the mass (in Kilograms) of this object's linkset.",
+        "version": "2022-04-21.571166"
+    },
+    "OBJECT_TEXT": {
+        "prefix": "OBJECT_TEXT",
+        "body": [
+           "OBJECT_TEXT$0"
+        ],
+        "description": "Gets the floating text displayed above this object.",
+        "version": "2022-04-21.571166"
+    },
+    "OBJECT_REZ_TIME": {
+        "prefix": "OBJECT_REZ_TIME",
+        "body": [
+           "OBJECT_REZ_TIME$0"
+        ],
+        "description": "Retrieves the time that this object was rezzed.",
+        "version": "2022-04-21.571166"
+    },    
+    "OBJECT_LINK_NUMBER": {
+        "prefix": "OBJECT_LINK_NUMBER",
+        "body": [
+           "OBJECT_LINK_NUMBER$0"
+        ],
+        "description": "Get this object's index in the linkset",
+        "version": "2022-04-21.571166"
+    },    
+    "OBJECT_SCALE": {
+        "prefix": "OBJECT_SCALE",
+        "body": [
+           "OBJECT_SCALE$0"
+        ],
+        "description": "Get the size of this object.",
+        "version": "2022-04-21.571166"
+    }, 
+    "OBJECT_TEXT_COLOR": {
+        "prefix": "OBJECT_TEXT_COLOR",
+        "body": [
+           "OBJECT_TEXT_COLOR$0"
+        ],
+        "description": "Gets the color of the floating text displayed above this object.",
+        "version": "2022-04-21.571166"
+    }, 
+    "OBJECT_TEXT_ALPHA": {
+        "prefix": "OBJECT_TEXT_ALPHA",
+        "body": [
+           "OBJECT_TEXT_ALPHA$0"
+        ],
+        "description": "Gets the alpha value of the floating text displayed above this object.",
+        "version": "2022-04-21.571166"
+    },
+
+    "OBJECT_ACCOUNT_LEVEL": {
+        "prefix": "OBJECT_ACCOUNT_LEVEL",
+        "body": [
+           "OBJECT_ACCOUNT_LEVEL$0"
+        ],
+        "description": "Gets the account level of an avatar.\nIf id is not an avatar, -1 is returned.\n0 is Basic account level.\n1 is Premium account level.\n10 is Premium Plus account level.",
+        "version": "2022-02-02.568051"
     }
 }
