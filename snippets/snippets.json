@@ -4224,6 +4224,23 @@
         "version": "2022-10-27.576126"
     },
 
+    "llGetObjectLinkKey": {
+        "prefix": "llGetObjectLinkKey",
+        "body": [
+           "llGetObjectLinkKey(${1:key object_id}, ${2|LINK_ROOT,LINK_THIS|})$0"
+        ],
+        "description": "key llGetObjectLinkKey( key object_id, integer link );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturns the key of the linked prim link in the linkset identified by object_id.\n• key object_id\n• integer link – link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag\n",
+        "version": "2022-10-07.575585"
+    },
+    "llSHA256String": {
+        "prefix": "llSHA256String",
+        "body": [
+           "llSHA256String(${1:string src});$0"
+        ],
+        "description": "string llSHA256String( string src );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturns a string of 64 hex characters that is the SHA-256 security hash of src.\n• string src\n",
+        "version": "2022-10-07.575585"
+    },
+
     "ACTIVE": {
         "prefix": "ACTIVE",
         "body": [
