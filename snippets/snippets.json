@@ -2523,7 +2523,7 @@
     "llGetLinkKey": {
         "prefix": "llGetLinkKey",
         "body": [
-           "llGetLinkKey(${1:integer link})$0"
+           "llGetLinkKey(${1|LINK_ROOT,LINK_THIS|})$0"
         ],
         "description": "key llGetLinkKey( integer link );\n\n 144 Function ID\n 0.0 Forced Delay\n 10.0 Energy\n\nReturns the key of the linked prim link\n• integer link – Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag \n"
     },
@@ -4066,7 +4066,7 @@
         "body": [
            "llReplaceSubString(${1:string src}, ${2:string pattern}, ${3:string replacement_pattern}, ${4:integer count});$0"
         ],
-        "description": "llReplaceSubString( string src, string pattern, string replacement_pattern, integer count );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the result of replacing the first count matching instances pattern in src with replacement_pattern.\n• string src\n• string pattern\n• string replacement_pattern\n• integer count\n\nIf count = 0, all matching substrings are replaced.\nIf count > 0, substrings are replaced starting from the left/beginning of src.\nIf count < 0, substrings are replaced starting from the right/end of src.\n",
+        "description": "string llReplaceSubString( string src, string pattern, string replacement_pattern, integer count );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the result of replacing the first count matching instances pattern in src with replacement_pattern.\n• string src\n• string pattern\n• string replacement_pattern\n• integer count\n\nIf count = 0, all matching substrings are replaced.\nIf count > 0, substrings are replaced starting from the left/beginning of src.\nIf count < 0, substrings are replaced starting from the right/end of src.\n",
         "version": "2023-01-27.577942"
     },
     "llVerifyRSA": {
@@ -4074,7 +4074,7 @@
         "body": [
            "llVerifyRSA(${1:string public_key}, ${2:string msg}, ${3:string signature}, ${4:string algorithm});$0"
         ],
-        "description": "llVerifyRSA( string public_key, string msg, string signature, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns an integer indicating whether the RSA signature is valid for msg when using hash algorithm algorithm and public RSA key public_key. Returns TRUE if the signature is verified, and FALSE otherwise. Can be paired with llSignRSA to validate the authenticity of messages from other LSL scripts.\n• string public_key\n• string msg\n• string signature\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
+        "description": "integer llVerifyRSA( string public_key, string msg, string signature, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns an integer indicating whether the RSA signature is valid for msg when using hash algorithm algorithm and public RSA key public_key. Returns TRUE if the signature is verified, and FALSE otherwise. Can be paired with llSignRSA to validate the authenticity of messages from other LSL scripts.\n• string public_key\n• string msg\n• string signature\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
         "version": "2023-01-27.577942"
     },    
     "llSignRSA": {
@@ -4082,7 +4082,7 @@
         "body": [
            "llSignRSA(${1:string private_key}, ${2:string msg}, ${3:string algorithm});$0"
         ],
-        "description": "llSignRSA( string private_key, string msg, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the Base64-encoded RSA signature of msg when using hash algorithm algorithm and secret key private_key. Can be paired with llVerifyRSA to pass verifiable messages.\n• string private_key\n• string msg\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
+        "description": "string llSignRSA( string private_key, string msg, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the Base64-encoded RSA signature of msg when using hash algorithm algorithm and secret key private_key. Can be paired with llVerifyRSA to pass verifiable messages.\n• string private_key\n• string msg\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
         "version": "2023-01-27.577942"
     },
     "llHMAC": {
@@ -4090,7 +4090,7 @@
         "body": [
            "llHMAC(${1:string private_key}, ${2:string msg}, ${3:string algorithm});$0"
         ],
-        "description": "llHMAC( string private_key, string msg, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the Base64-encoded HMAC hash of msg when using hash algorithm algorithm and secret key private_key.\n• string private_key\n• string msg\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
+        "description": "string llHMAC( string private_key, string msg, string algorithm );\n\n? Function ID\n Forced Delay\n10.0 Energy\n\nReturns a string that is the Base64-encoded HMAC hash of msg when using hash algorithm algorithm and secret key private_key.\n• string private_key\n• string msg\n• string algorithm\n\nThis function supports sha1, sha224, sha256, sha384, sha512 for algorithm.\n",
         "version": "2023-01-27.577942"
     },
 
@@ -4140,7 +4140,7 @@
         "body": [
            "llLinksetDataWrite(${1:string name}, ${2:string value});$0"
         ],
-        "description": "llLinksetDataWrite( string name, string value );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nCreates or updates a key/value pair in the linksets datastore. Returns an integer indicating success or failure. 0 is success, a positive number indicates failure.\n• string name – key name for data to be stored\n• string value – string data to be associated with this key.\n\nIf value is an empty string, the key is deleted from the linkset data.\n",
+        "description": "integer llLinksetDataWrite( string name, string value );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nCreates or updates a key/value pair in the linksets datastore. Returns an integer indicating success or failure. 0 is success, a positive number indicates failure.\n• string name – key name for data to be stored\n• string value – string data to be associated with this key.\n\nIf value is an empty string, the key is deleted from the linkset data.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataRead": {
@@ -4148,7 +4148,7 @@
         "body": [
            "llLinksetDataRead(${1:string name});$0"
         ],
-        "description": "llLinksetDataRead( string name );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReads the value associated with a key from the linkset's key-value datastore. Returns a string associated with the key. If the key does not exist, an empty string is returned.\n• string name – key name for data to be stored.key name for data to be read.\n",
+        "description": "string llLinksetDataRead( string name );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReads the value associated with a key from the linkset's key-value datastore. Returns a string associated with the key. If the key does not exist, an empty string is returned.\n• string name – key name for data to be stored.key name for data to be read.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataDelete": {
@@ -4156,7 +4156,7 @@
         "body": [
            "llLinksetDataDelete(${1:string name});$0"
         ],
-        "description": "llLinksetDataDelete( string name );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nRemoves a key value pair from the linkset's datastore.\n• string name – key name for data to be stored.key name for data to be read.which is the key name for data to be read.\n",
+        "description": "integer llLinksetDataDelete( string name );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nRemoves a key value pair from the linkset's datastore.\n• string name – key name for data to be stored.key name for data to be read.which is the key name for data to be read.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataReset": {
@@ -4172,7 +4172,7 @@
         "body": [
            "llLinksetDataAvailable();$0"
         ],
-        "description": "llLinksetDataAvailable( );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nThe number of bytes available in the linkset's datastore. Returns an integer with the number of bytes free in the datastore.\n",
+        "description": "integer llLinksetDataAvailable( );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nThe number of bytes available in the linkset's datastore. Returns an integer with the number of bytes free in the datastore.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataCountKeys": {
@@ -4180,7 +4180,7 @@
         "body": [
            "llLinksetDataCountKeys();$0"
         ],
-        "description": "llLinksetDataCountKeys( );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturns the number of keys used in the datastore. Returns an integer with the total number of keys in use.\n",
+        "description": "integer llLinksetDataCountKeys( );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturns the number of keys used in the datastore. Returns an integer with the total number of keys in use.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataListKeys": {
@@ -4188,7 +4188,7 @@
         "body": [
            "llLinksetDataListKeys(${1:integer first}, ${2:integer count});$0"
         ],
-        "description": "llLinksetDataListKeys( integer first, integer count );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturn a list of keys currently in use in the linkset data. Returns a list of keys stored in the linkset data.\n• integer first – the (zero based) index of the first key to return.\n• integer count – the maximum number of key names to return in the list.\n",
+        "description": "list llLinksetDataListKeys( integer first, integer count );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturn a list of keys currently in use in the linkset data. Returns a list of keys stored in the linkset data.\n• integer first – the (zero based) index of the first key to return.\n• integer count – the maximum number of key names to return in the list.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataFindKeys": {
@@ -4196,7 +4196,7 @@
         "body": [
            "llLinksetDataFindKeys(${1:string regex}, ${2:integer first}, ${3:integer count});$0"
         ],
-        "description": "llLinksetDataFindKeys( string regex, integer first, integer count );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturn a list of keys the linkset data which match the expression passed to the function. Returns a list of keys matching regex stored in the linkset data.\n• string regex – a regex expression to search for.\n• integer first – the (zero based) index of the first key to return.The (zero based) index of the first key to return.\n• integer count – the maximum number of key names to return in the list.The maximum number of key names to return in the list.\n",
+        "description": "list llLinksetDataFindKeys( string regex, integer first, integer count );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturn a list of keys the linkset data which match the expression passed to the function. Returns a list of keys matching regex stored in the linkset data.\n• string regex – a regex expression to search for.\n• integer first – the (zero based) index of the first key to return.The (zero based) index of the first key to return.\n• integer count – the maximum number of key names to return in the list.The maximum number of key names to return in the list.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataWriteProtected": {
@@ -4204,7 +4204,7 @@
         "body": [
            "llLinksetDataWriteProtected(${1:string name}, ${2:string value}, ${3:string pass});$0"
         ],
-        "description": "llLinksetDataWriteProtected( string name, string value, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nCreates or updates a key/value pair in the linksets datastore. Further attempts to read, write or update the name:value pair must use the protected versions of those functions and must supply the same string that was used in pass. Returns an integer indicating success or failure. 0 is success, a positive number indicates failure.\n• string name – key name for data to be stored\n• string value – string data to be associated with this key.\n• string pass – a pass phrase used to protect the name:value pair.\n\nProtecting a name:value pair adds an additional 32 bytes to its size in the datastore regardless of the length of pass. The length of pass itself is not counted against the data storage limit.\nWhen writing a protected name, the linkset_data event fires as normal, however the value parameter will be an empty string.\n",
+        "description": "integer llLinksetDataWriteProtected( string name, string value, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nCreates or updates a key/value pair in the linksets datastore. Further attempts to read, write or update the name:value pair must use the protected versions of those functions and must supply the same string that was used in pass. Returns an integer indicating success or failure. 0 is success, a positive number indicates failure.\n• string name – key name for data to be stored\n• string value – string data to be associated with this key.\n• string pass – a pass phrase used to protect the name:value pair.\n\nProtecting a name:value pair adds an additional 32 bytes to its size in the datastore regardless of the length of pass. The length of pass itself is not counted against the data storage limit.\nWhen writing a protected name, the linkset_data event fires as normal, however the value parameter will be an empty string.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataReadProtected": {
@@ -4212,7 +4212,7 @@
         "body": [
            "llLinksetDataReadProtected(${1:string name}, ${2:string pass});$0"
         ],
-        "description": "llLinksetDataReadProtected( string name, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReads a protected name:value pair from the datastore. Returns a string value corresponding to name.\n• string name – the key of the linkset name:value pair to be read.The key of the name:value pair to be read.\n• string pass – the pass phrase protecting the name:value pair.\n\nIf the pass parameter does not match, this function returns an empty string.\n",
+        "description": "string llLinksetDataReadProtected( string name, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReads a protected name:value pair from the datastore. Returns a string value corresponding to name.\n• string name – the key of the linkset name:value pair to be read.The key of the name:value pair to be read.\n• string pass – the pass phrase protecting the name:value pair.\n\nIf the pass parameter does not match, this function returns an empty string.\n",
         "version": "2022-10-27.576126"
     },
     "llLinksetDataDeleteProtected": {
@@ -4220,7 +4220,7 @@
         "body": [
            "llLinksetDataDeleteProtected(${1:string name}, ${2:string pass});$0"
         ],
-        "description": "llLinksetDataDeleteProtected( string name, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nErases a protected name:value pair from the linkset's datastore.\nReturns an integer success or failure code.\n• string name – the key of the linkset name:value pair to be deleted.The key of the linkset name:value pair to be deleted.\n• string pass – a pass phrase previously used to protect the name:value pair.\n",
+        "description": "integer llLinksetDataDeleteProtected( string name, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nErases a protected name:value pair from the linkset's datastore.\nReturns an integer success or failure code.\n• string name – the key of the linkset name:value pair to be deleted.The key of the linkset name:value pair to be deleted.\n• string pass – a pass phrase previously used to protect the name:value pair.\n",
         "version": "2022-10-27.576126"
     },
 
