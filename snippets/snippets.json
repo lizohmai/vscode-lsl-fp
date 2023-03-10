@@ -2068,7 +2068,7 @@
     "llGetStatus": {
         "prefix": "llGetStatus",
         "body": [
-           "llGetStatus(${1|STATUS_PHYSICS,STATUS_ROTATE_X,STATUS_ROTATE_Y,STATUS_ROTATE_Z,STATUS_PHANTOM,STATUS_SANDBOX,STATUS_BLOCK_GRAB,STATUS_DIE_AT_EDGE,STATUS_RETURN_AT_EDGE,STATUS_CAST_SHADOWS,STATUS_BLOCK_GRAB_OBJECT|})$0"
+           "llGetStatus(${1|STATUS_PHYSICS,STATUS_ROTATE_X,STATUS_ROTATE_Y,STATUS_ROTATE_Z,STATUS_PHANTOM,STATUS_SANDBOX,STATUS_BLOCK_GRAB,STATUS_DIE_AT_EDGE,STATUS_RETURN_AT_EDGE,STATUS_CAST_SHADOWS,STATUS_BLOCK_GRAB_OBJECT,STATUS_DIE_AT_NO_ENTRY|})$0"
         ],
         "description": "integer llGetStatus( integer status );\n\n 46 Function ID\n 0.0 Forced Delay\n 10.0 Energy\n\nReturns a boolean (an integer) equal to the status of the object.\n• integer status – A single STATUS_* flag\n"
     },
@@ -2698,7 +2698,7 @@
     "llSetStatus": {
         "prefix": "llSetStatus",
         "body": [
-           "llSetStatus(${1|STATUS_PHYSICS,STATUS_ROTATE_X,STATUS_ROTATE_Y,STATUS_ROTATE_Z,STATUS_PHANTOM,STATUS_SANDBOX,STATUS_BLOCK_GRAB,STATUS_DIE_AT_EDGE,STATUS_RETURN_AT_EDGE,STATUS_CAST_SHADOWS,STATUS_BLOCK_GRAB_OBJECT|}, ${2|TRUE,FALSE|});$0"
+           "llSetStatus(${1|STATUS_PHYSICS,STATUS_ROTATE_X,STATUS_ROTATE_Y,STATUS_ROTATE_Z,STATUS_PHANTOM,STATUS_SANDBOX,STATUS_BLOCK_GRAB,STATUS_DIE_AT_EDGE,STATUS_RETURN_AT_EDGE,STATUS_CAST_SHADOWS,STATUS_BLOCK_GRAB_OBJECT,STATUS_DIE_AT_NO_ENTRY|}, ${2|TRUE,FALSE|});$0"
         ],
         "description": "llSetStatus( integer status, integer value );\n\n 45 Function ID\n 0.0 Forced Delay\n 10.0 Energy\n\nSets the object status attributes indicated in the status} mask to value\n• integer status – bit mask, STATUS_* flags\n• integer value – boolean,  TRUE enables, FALSE disables\n"
     },
@@ -7809,14 +7809,14 @@
         "body": [
            "STATUS_BLOCK_GRAB$0"
         ],
-        "description": "STATUS_BLOCK_GRAB"
+        "description": "Prevent click-and-drag movement on the root prim"
     },
     "STATUS_BLOCK_GRAB_OBJECT": {
         "prefix": "STATUS_BLOCK_GRAB_OBJECT",
         "body": [
            "STATUS_BLOCK_GRAB_OBJECT$0"
         ],
-        "description": "STATUS_BLOCK_GRAB_OBJECT"
+        "description": "Prevent click-and-drag movement on all prims in the object"
     },
     "STATUS_BOUNDS_ERROR": {
         "prefix": "STATUS_BOUNDS_ERROR",
@@ -7830,14 +7830,14 @@
         "body": [
            "STATUS_CAST_SHADOWS$0"
         ],
-        "description": "STATUS_CAST_SHADOWS"
+        "description": "not currently used"
     },
     "STATUS_DIE_AT_EDGE": {
         "prefix": "STATUS_DIE_AT_EDGE",
         "body": [
            "STATUS_DIE_AT_EDGE$0"
         ],
-        "description": "STATUS_DIE_AT_EDGE"
+        "description": "Delete and do not return object if it goes off world"
     },
     "STATUS_INTERNAL_ERROR": {
         "prefix": "STATUS_INTERNAL_ERROR",
@@ -7879,49 +7879,49 @@
         "body": [
            "STATUS_PHANTOM$0"
         ],
-        "description": "STATUS_PHANTOM"
+        "description": "Object is phantom"
     },
     "STATUS_PHYSICS": {
         "prefix": "STATUS_PHYSICS",
         "body": [
            "STATUS_PHYSICS$0"
         ],
-        "description": "STATUS_PHYSICS"
+        "description": "Object is physical"
     },
     "STATUS_RETURN_AT_EDGE": {
         "prefix": "STATUS_RETURN_AT_EDGE",
         "body": [
            "STATUS_RETURN_AT_EDGE$0"
         ],
-        "description": "STATUS_RETURN_AT_EDGE"
+        "description": "Return object to owner if it goes off world"
     },
     "STATUS_ROTATE_X": {
         "prefix": "STATUS_ROTATE_X",
         "body": [
            "STATUS_ROTATE_X$0"
         ],
-        "description": "STATUS_ROTATE_X"
+        "description": "Can turn along X axis (physical objects only)"
     },
     "STATUS_ROTATE_Y": {
         "prefix": "STATUS_ROTATE_Y",
         "body": [
            "STATUS_ROTATE_Y$0"
         ],
-        "description": "STATUS_ROTATE_Y"
+        "description": "Can turn along Y axis (physical objects only)"
     },
     "STATUS_ROTATE_Z": {
         "prefix": "STATUS_ROTATE_Z",
         "body": [
            "STATUS_ROTATE_Z$0"
         ],
-        "description": "STATUS_ROTATE_Z"
+        "description": "Can turn along Z axis (physical objects only)"
     },
     "STATUS_SANDBOX": {
         "prefix": "STATUS_SANDBOX",
         "body": [
            "STATUS_SANDBOX$0"
         ],
-        "description": "STATUS_SANDBOX"
+        "description": "Keep object within 10 meters and in the same region"
     },
     "STATUS_TYPE_MISMATCH": {
         "prefix": "STATUS_TYPE_MISMATCH",
@@ -9223,5 +9223,15 @@
         ],
         "description": "The name:value stored in the linkset was not changed by the write operation because the value stored matches the value written.",
         "version": "2022-10-27.576126"
+    },
+
+    "STATUS_DIE_AT_NO_ENTRY": {
+        "prefix": "STATUS_DIE_AT_NO_ENTRY",
+        "body": [
+           "STATUS_DIE_AT_NO_ENTRY$0"
+        ],
+        "description": "Delete and do not return object if it cannot enter a parcel",
+        "version": "2022-08-25.574611"
     }
+
 }
