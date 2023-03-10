@@ -846,6 +846,18 @@
         ],
         "description": "Triggered when task receives asynchronous data\n• key id – matches the return of the llTransfer* function\n• integer success – TRUE if the transfer succeeded otherwise FALSE.\n• string data – On successful transactions this will contain a CSV of information pertaining to the transaction. In failure, a string will be returned matching one of the error tags below."
     },
+
+    "linkset_data Event": {
+        "prefix": "linkset_data",
+        "body": [
+            "linkset_data( integer ${1:action}, string ${2:name}, string ${3:value} )",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "The linkset_data event fires in all scripts in a linkset whenever the datastore has been modified through a call to one of the llLinksetData functions.\n• integer action – Action taken on the linkset Datastore\n• string name – The key of the name:value pair.\n• string value – The new value of the pair. Empty string if pair was deleted.\n\nThis event fires in all scripts in a linkset whenever the datastore is changed.\n",
+        "version": "2022-10-27.576126"
+    },
     
     "llSetPrimitiveParams": {
         "prefix": "llSetPrimitiveParams",
@@ -4121,6 +4133,95 @@
         ],
         "description": "llLinkPlaySound( integer link, string sound, float volume, integer flags );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nPlays attached sound once at volume\n• integer link - Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag\n• string sound – a sound in the inventory of the prim this script is in or a UUID of a sound\n• float volume – between 0.0 (silent) and 1.0 (loud) (0.0 <= volume <= 1.0)\n• integer flags - bit flags used to control how the sound is played.\n",
         "version": "2023-01-11.577595"
+    },
+
+    "llLinksetDataWrite": {
+        "prefix": "llLinksetDataWrite",
+        "body": [
+           "llLinksetDataWrite(${1:string name}, ${2:string value});$0"
+        ],
+        "description": "llLinksetDataWrite( string name, string value );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nCreates or updates a key/value pair in the linksets datastore. Returns an integer indicating success or failure. 0 is success, a positive number indicates failure.\n• string name – key name for data to be stored\n• string value – string data to be associated with this key.\n\nIf value is an empty string, the key is deleted from the linkset data.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataRead": {
+        "prefix": "llLinksetDataRead",
+        "body": [
+           "llLinksetDataRead(${1:string name});$0"
+        ],
+        "description": "llLinksetDataRead( string name );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReads the value associated with a key from the linkset's key-value datastore. Returns a string associated with the key. If the key does not exist, an empty string is returned.\n• string name – key name for data to be stored.key name for data to be read.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataDelete": {
+        "prefix": "llLinksetDataDelete",
+        "body": [
+           "llLinksetDataDelete(${1:string name});$0"
+        ],
+        "description": "llLinksetDataDelete( string name );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nRemoves a key value pair from the linkset's datastore.\n• string name – key name for data to be stored.key name for data to be read.which is the key name for data to be read.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataReset": {
+        "prefix": "llLinksetDataReset",
+        "body": [
+           "llLinksetDataReset();$0"
+        ],
+        "description": "llLinksetDataReset( );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nErases all existing keys value pairs in the linkset's datastore.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataAvailable": {
+        "prefix": "llLinksetDataAvailable",
+        "body": [
+           "llLinksetDataAvailable();$0"
+        ],
+        "description": "llLinksetDataAvailable( );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nThe number of bytes available in the linkset's datastore. Returns an integer with the number of bytes free in the datastore.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataCountKeys": {
+        "prefix": "llLinksetDataCountKeys",
+        "body": [
+           "llLinksetDataCountKeys();$0"
+        ],
+        "description": "llLinksetDataCountKeys( );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturns the number of keys used in the datastore. Returns an integer with the total number of keys in use.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataListKeys": {
+        "prefix": "llLinksetDataListKeys",
+        "body": [
+           "llLinksetDataListKeys(${1:integer first}, ${2:integer count});$0"
+        ],
+        "description": "llLinksetDataListKeys( integer first, integer count );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturn a list of keys currently in use in the linkset data. Returns a list of keys stored in the linkset data.\n• integer first – the (zero based) index of the first key to return.\n• integer count – the maximum number of key names to return in the list.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataFindKeys": {
+        "prefix": "llLinksetDataFindKeys",
+        "body": [
+           "llLinksetDataFindKeys(${1:string regex}, ${2:integer first}, ${3:integer count});$0"
+        ],
+        "description": "llLinksetDataFindKeys( string regex, integer first, integer count );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturn a list of keys the linkset data which match the expression passed to the function. Returns a list of keys matching regex stored in the linkset data.\n• string regex – a regex expression to search for.\n• integer first – the (zero based) index of the first key to return.The (zero based) index of the first key to return.\n• integer count – the maximum number of key names to return in the list.The maximum number of key names to return in the list.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataWriteProtected": {
+        "prefix": "llLinksetDataWriteProtected",
+        "body": [
+           "llLinksetDataWriteProtected(${1:string name}, ${2:string value}, ${3:string pass});$0"
+        ],
+        "description": "llLinksetDataWriteProtected( string name, string value, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nCreates or updates a key/value pair in the linksets datastore. Further attempts to read, write or update the name:value pair must use the protected versions of those functions and must supply the same string that was used in pass. Returns an integer indicating success or failure. 0 is success, a positive number indicates failure.\n• string name – key name for data to be stored\n• string value – string data to be associated with this key.\n• string pass – a pass phrase used to protect the name:value pair.\n\nProtecting a name:value pair adds an additional 32 bytes to its size in the datastore regardless of the length of pass. The length of pass itself is not counted against the data storage limit.\nWhen writing a protected name, the linkset_data event fires as normal, however the value parameter will be an empty string.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataReadProtected": {
+        "prefix": "llLinksetDataReadProtected",
+        "body": [
+           "llLinksetDataReadProtected(${1:string name}, ${2:string pass});$0"
+        ],
+        "description": "llLinksetDataReadProtected( string name, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReads a protected name:value pair from the datastore. Returns a string value corresponding to name.\n• string name – the key of the linkset name:value pair to be read.The key of the name:value pair to be read.\n• string pass – the pass phrase protecting the name:value pair.\n\nIf the pass parameter does not match, this function returns an empty string.\n",
+        "version": "2022-10-27.576126"
+    },
+    "llLinksetDataDeleteProtected": {
+        "prefix": "llLinksetDataDeleteProtected",
+        "body": [
+           "llLinksetDataDeleteProtected(${1:string name}, ${2:string pass});$0"
+        ],
+        "description": "llLinksetDataDeleteProtected( string name, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nErases a protected name:value pair from the linkset's datastore.\nReturns an integer success or failure code.\n• string name – the key of the linkset name:value pair to be deleted.The key of the linkset name:value pair to be deleted.\n• string pass – a pass phrase previously used to protect the name:value pair.\n",
+        "version": "2022-10-27.576126"
     },
 
     "ACTIVE": {
@@ -9032,5 +9133,78 @@
         ],
         "description": "Synchronizes sound playback to the nearest sound master. Please see llLoopSoundMaster.",
         "version": "2023-01-11.577595"
-    } 
+    },
+
+    "LINKSETDATA_RESET": {
+        "prefix": "LINKSETDATA_RESET",
+        "body": [
+           "LINKSETDATA_RESET$0"
+        ],
+        "description": "The linkset's datastore has been cleared by a call to llLinksetDataReset.",
+        "version": "2022-10-27.576126"
+    },
+    "LINKSETDATA_UPDATE": {
+        "prefix": "LINKSETDATA_UPDATE",
+        "body": [
+           "LINKSETDATA_UPDATE$0"
+        ],
+        "description": "A key in the linkset's datastore has been assigned a new value with llLinksetDataWrite.",
+        "version": "2022-10-27.576126"
+    },
+    "LINKSETDATA_DELETE": {
+        "prefix": "LINKSETDATA_DELETE",
+        "body": [
+           "LINKSETDATA_DELETE$0"
+        ],
+        "description": "A key in the linkset's datastore has been deleted. Either through a call to llLinksetDataDelete or llLinksetDataWrite with an empty value.",
+        "version": "2022-10-27.576126"
+    },
+    "LINKSETDATA_OK": {
+        "prefix": "LINKSETDATA_OK",
+        "body": [
+           "LINKSETDATA_OK$0"
+        ],
+        "description": "The name:value pair was written to the datastore.",
+        "version": "2022-10-27.576126"
+    },
+    "LINKSETDATA_EMEMORY": {
+        "prefix": "LINKSETDATA_EMEMORY",
+        "body": [
+           "LINKSETDATA_EMEMORY$0"
+        ],
+        "description": "A name:value pair was too large to write to the linkset datastore.",
+        "version": "2022-10-27.576126"
+    },
+    "LINKSETDATA_ENOKEY": {
+        "prefix": "LINKSETDATA_ENOKEY",
+        "body": [
+           "LINKSETDATA_ENOKEY$0"
+        ],
+        "description": "The name supplied to llLinksetDataWrite was empty.",
+        "version": "2022-10-27.576126"
+    },
+    "LINKSETDATA_EPROTECTED": {
+        "prefix": "LINKSETDATA_EPROTECTED",
+        "body": [
+           "LINKSETDATA_EPROTECTED$0"
+        ],
+        "description": "The name:value pair has been protected from overwrite in the linkset's datastore.",
+        "version": "2022-10-27.576126"
+    },
+    "LINKSETDATA_NOTFOUND": {
+        "prefix": "LINKSETDATA_NOTFOUND",
+        "body": [
+           "LINKSETDATA_NOTFOUND$0"
+        ],
+        "description": "The named key could not be found in the linkset's datastore when attempting to delete it.",
+        "version": "2022-10-27.576126"
+    },
+    "LINKSETDATA_NOUPDATE": {
+        "prefix": "LINKSETDATA_NOUPDATE",
+        "body": [
+           "LINKSETDATA_NOUPDATE$0"
+        ],
+        "description": "The name:value stored in the linkset was not changed by the write operation because the value stored matches the value written.",
+        "version": "2022-10-27.576126"
+    }
 }
