@@ -4274,7 +4274,16 @@
         ],
         "description": "string llGetInventoryAcquireTime( string item );\n\n? Function ID\nForced Delay\n10.0 Energy\n\nReturns a string with the timestamp that the item was added to the prim's inventory.\n• string item – an item in the inventory of the prim this script is in\n",
         "version": "2021-05-25.560108"
-    },    
+    },
+    
+    "llOpenFloater": {
+        "prefix": "llOpenFloater",
+        "body": [
+           "llOpenFloater(${1:string floater_name}, ${2:string url}, ${3:list params});$0"
+        ],
+        "description": "integer llOpenFloater( string floater_name, string url, list params );\n\n? Function ID\nForced Delay\nEnergy\n\nThe function will send a request to the viewer requesting that it open a new floater with the provided title on the viewer. This function must be called from a script running within an attachment. The script must also have been compiled as part of a Linden owned experience.\n• string floater_name – identifier of the viewer floater to open\n• string url – URL to open in the floater\n• list params – options to apply to floater.\n",
+        "version": "2021-05-12.559679"
+    },
 
     "ACTIVE": {
         "prefix": "ACTIVE",
@@ -9496,6 +9505,38 @@
         ],
         "description": "The light projection settings for this prim. If the prim is not a projector the texture key will be NULL_KEY.\n [ PRIM_PROJECTOR, string texture, float fov, float focus, float ambiance ]",
         "version": "2021-10-08.564610"
-    }
+    },
 
+    "NOT_EXPERIENCE": {
+        "prefix": "NOT_EXPERIENCE",
+        "body": [
+           "NOT_EXPERIENCE$0"
+        ],
+        "description": "The script is not complied as part of an experience, or the experience is not privileged.",
+        "version": "2021-05-12.559679"
+    },
+    "NOT_ATTACHMENT": {
+        "prefix": "NOT_ATTACHMENT",
+        "body": [
+           "NOT_ATTACHMENT$0"
+        ],
+        "description": "There was an issue finding the object, or the object is not an attachment.",
+        "version": "2021-05-12.559679"
+    },
+    "BAD_AGENT": {
+        "prefix": "BAD_AGENT",
+        "body": [
+           "BAD_AGENT$0"
+        ],
+        "description": "There was an issue finding the owner.",
+        "version": "2021-05-12.559679"
+    },
+    "NOT_EXPERIENCE_PERMISSIONS": {
+        "prefix": "NOT_EXPERIENCE_PERMISSIONS",
+        "body": [
+           "NOT_EXPERIENCE_PERMISSIONS$0"
+        ],
+        "description": "There was some other issue with the experience permissions.",
+        "version": "2021-05-12.559679"
+    }
 }
