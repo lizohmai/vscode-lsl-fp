@@ -1830,7 +1830,7 @@
     "llGetLinkName": {
         "prefix": "llGetLinkName",
         "body": [
-           "llGetLinkName(${1:integer link})$0"
+           "llGetLinkName(${1|LINK_ROOT,LINK_THIS|})$0"
         ],
         "description": "string llGetLinkName( integer link );\n\n 145 Function ID\n 0.0 Forced Delay\n 10.0 Energy\n\nReturns a string that is the name of link in link set\n• integer link – Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag \n"
     },
@@ -1858,7 +1858,7 @@
     "llSetLinkCamera": {
         "prefix": "llSetLinkCamera",
         "body": [
-           "llSetLinkCamera(${1:integer link}, ${2:vector eye}, ${3:vector at});$0"
+           "llSetLinkCamera(${1|LINK_ROOT,LINK_THIS|}, ${2:vector eye}, ${3:vector at});$0"
         ],
         "description": "llSetLinkCamera( integer link, vector eye, vector at );\n\n ? Function ID\n 0.0 Forced Delay\n 10.0 Energy\n\nSets the camera eye offset, and the offset that camera is looking at, for avatars that sit on the linked prim.\n• integer link – Link number (0: unlinked, 1: root prim, >1: child prims and seated avatars) or a LINK_* flag \n• vector eye – offset relative to the prim's position and expressed in local coordinates\n• vector at – offset relative to the prim's position and expressed in local coordinates\n"
     },
@@ -4266,6 +4266,15 @@
         "description": "list llGetVisualParams( key agentid, list params );\n\n? Function ID\nForced Delay\n10.0 Energy\n\nReturns a list of the details for agentid requested in params.\n• key agentid – avatar ID in the same region.\n• list params – list of visual param ids or names.\n\nAn empty list if agentid is not found. An empty string, \"\", is returned in the place of any invalid or unknown visual parameter.\n",
         "version": "2022-04-21.571166"
     },
+
+    "llGetInventoryAcquireTime": {
+        "prefix": "llGetInventoryAcquireTime",
+        "body": [
+           "llGetInventoryAcquireTime(${1:string item});$0"
+        ],
+        "description": "string llGetInventoryAcquireTime( string item );\n\n? Function ID\nForced Delay\n10.0 Energy\n\nReturns a string with the timestamp that the item was added to the prim's inventory.\n• string item – an item in the inventory of the prim this script is in\n",
+        "version": "2021-05-25.560108"
+    },    
 
     "ACTIVE": {
         "prefix": "ACTIVE",
