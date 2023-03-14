@@ -9478,5 +9478,15 @@
         ],
         "description": "Gets the account level of an avatar.\nIf id is not an avatar, -1 is returned.\n0 is Basic account level.\n1 is Premium account level.\n10 is Premium Plus account level.",
         "version": "2022-02-02.568051"
+    },
+
+    "PRIM_PROJECTOR": {
+        "prefix": "PRIM_PROJECTOR",
+        "body": [
+           "PRIM_PROJECTOR$0"
+        ],
+        "description": "The light projection settings for this prim. If the prim is not a projector the texture key will be NULL_KEY.\n [ PRIM_PROJECTOR, string texture, float fov, float focus, float ambiance ]",
+        "version": "2021-10-08.564610"
     }
+
 }
