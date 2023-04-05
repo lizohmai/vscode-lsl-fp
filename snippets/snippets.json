@@ -4060,6 +4060,31 @@
         ],
         "description": "llTargetedEmail( integer target, string subject, string message );\n\n119 Function ID\n20.0 Forced Delay\n10.0 Energy\n\nSends an email to the owner or creator (selected by target) of an object with subject and message.\n• integer target\n• string subject\n• string message\nThe entire message (including the address, subject and other miscellaneous fields) can't be longer than 4096 bytes combined.\n"
     },
+
+    "llList2ListSlice": {
+        "prefix": "llList2ListSlice",
+        "body": [
+           "llList2ListSlice(${1:list src}, ${2:integer start}, ${3:integer end}, ${4:integer stride}, ${5:integer index});$0"
+        ],
+        "description": "llList2ListSlice( list src, integer start, integer end, integer stride, integer index );\n\n? Function ID\n Forced Delay\n Energy\n\nReturns a list that is a vertical slice of a strided list. This function constructs a new list which in the index'th item (0 based) in each stride.\n• list src\n• integer start – start index\n• integer end – end index\n• integer stride – number of entries per stride, if less than 1 it is assumed to be 1\n• integer index - the item in the stride to select.\n",
+        "version": "2023-04-03.579248"
+    },
+    "llListSortStrided": {
+        "prefix": "llListSortStrided",
+        "body": [
+           "llListSortStrided(${1:list src}, ${2:integer stride}, ${3:integer keyindex}, ${4:integer ascending});$0"
+        ],
+        "description": "llListSortStrided( list src, integer stride, integer keyindex, integer ascending );\n\n? Function ID\n Forced Delay\n Energy\n\nReturns a list that is src sorted by the entry keyindex in each stride.\n• list src – list to be sorted\n• integer stride – number of entries per stride, if less than 1 it is assumed to be 1\n• integer keyindex - the element of each stride to use as the sort key\n• integer ascending – if TRUE then the sort order is ascending, otherwise the order is descending.\n",
+        "version": "2023-04-03.579248"
+    },
+    "llListFindListStrided": {
+        "prefix": "llListFindListStrided",
+        "body": [
+           "llListFindListStrided(${1:list src}, ${2:list test}, ${3:integer stride}, ${4:integer keyindex});$0"
+        ],
+        "description": "llListFindListStrided( list src, list test, integer stride, integer keyindex );\n\n? Function ID\n Forced Delay\n Energy\n\nReturns the integer index of the beginning of the first stride containing the test value at the keyindex within the stride.\n• list src – what to search in (haystack)\n• list test – what to search for (needle)\n• integer stride - The stride of each record in the list\n• integer keyindex - The index within each stride to consider\n\nIf test is not found in src, -1 is returned.\nThe index of the first entry in the list is 0\nIf test is found at the last index in src the positive index is returned (5th entry of 5 returns 4).\n",
+        "version": "2023-04-03.579248"
+    },
   
     "llReplaceSubString": {
         "prefix": "llReplaceSubString",
