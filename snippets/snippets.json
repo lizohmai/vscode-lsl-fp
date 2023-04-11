@@ -4064,25 +4064,25 @@
     "llList2ListSlice": {
         "prefix": "llList2ListSlice",
         "body": [
-           "llList2ListSlice(${1:list src}, ${2:integer start}, ${3:integer end}, ${4:integer stride}, ${5:integer index});$0"
+           "llList2ListSlice(${1:list src}, ${2:integer start}, ${3:integer end}, ${4:integer stride}, ${5:integer slice_index});$0"
         ],
-        "description": "llList2ListSlice( list src, integer start, integer end, integer stride, integer index );\n\n? Function ID\n Forced Delay\n Energy\n\nReturns a list that is a vertical slice of a strided list. This function constructs a new list which in the index'th item (0 based) in each stride.\n• list src\n• integer start – start index\n• integer end – end index\n• integer stride – number of entries per stride, if less than 1 it is assumed to be 1\n• integer index - the item in the stride to select.\n",
+        "description": "list llList2ListSlice( list src, integer start, integer end, integer stride, integer slice_index );\n\n198 Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturns a list that is a vertical slice of a strided list. This function constructs a new list which in the index'th item (0 based) in each stride.\n• list src\n• integer start – start index\n• integer end – end index\n• integer stride – number of entries per stride, if less than 1 it is assumed to be 1\n• integer slice_index - the item in the stride to select.\n\nThe index of the first entry in the list is 0\nThe index of the first entry in a slice is 0\nIf start, end, or slice_index are negative they are indexed from end of list. -1 is last element in the list. -list_length is the 1st element of the list.\nIf slice_index is negative it is counted from the end of its stride regardless of whether or not the stride exceeds the end of the list. e.g: -1 is the last element in a stride.\nIf start > end the range from start to end is treated as an exclusion range.\n",
         "version": "2023-04-03.579248"
     },
     "llListSortStrided": {
         "prefix": "llListSortStrided",
         "body": [
-           "llListSortStrided(${1:list src}, ${2:integer stride}, ${3:integer keyindex}, ${4:integer ascending});$0"
+           "llListSortStrided(${1:list src}, ${2:integer stride}, ${3:integer stride_index}, ${4:integer ascending});$0"
         ],
-        "description": "llListSortStrided( list src, integer stride, integer keyindex, integer ascending );\n\n? Function ID\n Forced Delay\n Energy\n\nReturns a list that is src sorted by the entry keyindex in each stride.\n• list src – list to be sorted\n• integer stride – number of entries per stride, if less than 1 it is assumed to be 1\n• integer keyindex - the element of each stride to use as the sort key\n• integer ascending – if TRUE then the sort order is ascending, otherwise the order is descending.\n",
+        "description": "list llListSortStrided( list src, integer stride, integer stride_index, integer ascending );\n\n184 Function ID\n0.0 Forced Delay\n10.0 Energy\n\nllListSortStrided is llListSort with the added parameter of stride_index, adding the flexibility to sort by any item in the stride. These routines use the same underlying code and have the same computational complexity.\nReturns a list that is src sorted by the entry stride_index in each stride.\n• list src – list to be sorted\n• integer stride – number of entries per stride, if less than 1 it is assumed to be 1\n• integer stride_index - The index within the stride to sort by. stride_index is 0-indexed.  The first element is 0, second 1, etc. An index of 0 is functionally identical to using llListSort\n• integer ascending – if TRUE then the sort order is ascending, otherwise the order is descending.\n",
         "version": "2023-04-03.579248"
     },
-    "llListFindListStrided": {
-        "prefix": "llListFindListStrided",
+    "llListFindStrided": {
+        "prefix": "llListFindStrided",
         "body": [
-           "llListFindListStrided(${1:list src}, ${2:list test}, ${3:integer stride}, ${4:integer keyindex});$0"
+           "llListFindStrided(${1:list src}, ${2:list test}, ${3:integer start}, ${4:integer end}, ${5:integer stride});$0"
         ],
-        "description": "llListFindListStrided( list src, list test, integer stride, integer keyindex );\n\n? Function ID\n Forced Delay\n Energy\n\nReturns the integer index of the beginning of the first stride containing the test value at the keyindex within the stride.\n• list src – what to search in (haystack)\n• list test – what to search for (needle)\n• integer stride - The stride of each record in the list\n• integer keyindex - The index within each stride to consider\n\nIf test is not found in src, -1 is returned.\nThe index of the first entry in the list is 0\nIf test is found at the last index in src the positive index is returned (5th entry of 5 returns 4).\n",
+        "description": "integer llListFindStrided( list src, list test, integer start, integer end, integer stride );\n\n201 Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturns the integer index of the first instance of test in src matching conditions.\n• list src – what to search in (haystack)\n• list test – what to search for (needle)\n• integer start - start of range to search\n• integer end - end of range to search\n•integer stride - number of entries per stride within src\n\nIf test matching range and stride conditions is not found in src, -1 is returned.\nThe length of test may be equal to or less than stride in order to generate a match.\nThe index of the first entry in the list is 0.\nIf test is found at the last index in src the positive index is returned (5th entry of 5 returns 4).\nIf start or end is negative, it is counted from the end list. The last element in the list is -1, the first is -list_length\n",
         "version": "2023-04-03.579248"
     },
   
