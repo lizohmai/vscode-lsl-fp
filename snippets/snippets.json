@@ -9563,5 +9563,14 @@
         ],
         "description": "There was some other issue with the experience permissions.",
         "version": "2021-05-12.559679"
+    },
+
+    "AGENT_AUTOMATED": {
+        "prefix": "AGENT_AUTOMATED",
+        "body": [
+           "AGENT_AUTOMATED$0"
+        ],
+        "description": "Returned if agent is marked as a scripted agent/bot",
+        "version": "2023-06-09.580543"
     }
 }
