@@ -4061,6 +4061,23 @@
         "description": "llTargetedEmail( integer target, string subject, string message );\n\n119 Function ID\n20.0 Forced Delay\n10.0 Energy\n\nSends an email to the owner or creator (selected by target) of an object with subject and message.\n• integer target\n• string subject\n• string message\nThe entire message (including the address, subject and other miscellaneous fields) can't be longer than 4096 bytes combined.\n"
     },
 
+    "llLinksetDataCountFound": {
+        "prefix": "llLinksetDataCountFound",
+        "body": [
+           "llLinksetDataCountFound(${1:string pattern});$0"
+        ],
+        "description": "integer llLinksetDataCountFound( string pattern );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nReturns an integer Count of the keys in the datastore that match the supplied pattern.\n• string pattern – a regular expression describing which keys to return.\n",
+        "version": "2023-07-14.581036"
+    },
+    "llLinksetDataDeleteFound": {
+        "prefix": "llLinksetDataDeleteFound",
+        "body": [
+           "llLinksetDataDeleteFound(${1:string pattern}, ${2:string pass});$0"
+        ],
+        "description": "list llLinksetDataDeleteFound( string pattern, string pass );\n\n? Function ID\n0.0 Forced Delay\n10.0 Energy\n\nThe function finds and attempts to delete all keys in the data store that match pattern. This function will delete protected key-value pairs only if the matching pass phrase is passed in the pass parameter. The function returns a list, the first entry in the list is the number of keys deleted, the second entry in the list is the number of keys that could not be deleted due to a non-matching pass phrase.\n• string pattern – a regular expression describing which keys to return. \n• string pass – optional pass phrase to delete protected keys.\n",
+        "version": "2023-07-14.581036"
+    },
+
     "llList2ListSlice": {
         "prefix": "llList2ListSlice",
         "body": [
@@ -9179,6 +9196,32 @@
         "description": "There was an error connecting to the back-end service"
     },
 
+    "PRIM_SCULPT_TYPE_MESH": {
+        "prefix": "PRIM_SCULPT_TYPE_MESH",
+        "body": [
+           "PRIM_SCULPT_TYPE_MESH$0"
+        ],
+        "description": "Mesh flag for llGetPrimitiveParams()",
+        "version": "2023-07-14.581036"
+    },
+    "PRIM_SCULPT_FLAG_ANIMESH": {
+        "prefix": "PRIM_SCULPT_FLAG_ANIMESH",
+        "body": [
+           "PRIM_SCULPT_FLAG_ANIMESH$0"
+        ],
+        "description": "Animesh flag for llGetPrimitiveParams()",
+        "version": "2023-07-14.581036"
+    },
+
+    "AGENT_AUTOMATED": {
+        "prefix": "AGENT_AUTOMATED",
+        "body": [
+           "AGENT_AUTOMATED$0"
+        ],
+        "description": "Returned if agent is marked as a scripted agent/bot",
+        "version": "2023-06-09.580543"
+    },
+
     "SIM_STAT_CHILD_AGENT_COUNT": {
         "prefix": "SIM_STAT_CHILD_AGENT_COUNT",
         "body": [
@@ -9563,14 +9606,5 @@
         ],
         "description": "There was some other issue with the experience permissions.",
         "version": "2021-05-12.559679"
-    },
-
-    "AGENT_AUTOMATED": {
-        "prefix": "AGENT_AUTOMATED",
-        "body": [
-           "AGENT_AUTOMATED$0"
-        ],
-        "description": "Returned if agent is marked as a scripted agent/bot",
-        "version": "2023-06-09.580543"
     }
 }
