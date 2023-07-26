@@ -9196,6 +9196,15 @@
         "description": "There was an error connecting to the back-end service"
     },
 
+    "LINKSETDATA_MULTIDELETE": {
+        "prefix": "LINKSETDATA_MULTIDELETE",
+        "body": [
+           "LINKSETDATA_MULTIDELETE$0"
+        ],
+        "description": "A comma separated list of the keys in the linkset's datastore which have been deleted through a call to llLinksetDataDeleteFound().",
+        "version": "2023-07-14.581036"
+    },
+
     "PRIM_SCULPT_TYPE_MESH": {
         "prefix": "PRIM_SCULPT_TYPE_MESH",
         "body": [
