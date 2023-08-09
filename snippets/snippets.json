@@ -3426,7 +3426,7 @@
     "llCSV2List": {
         "prefix": "llCSV2List",
         "body": [
-           "llCSV2List(${1:list src})$0"
+           "llCSV2List(${1:string src})$0"
         ],
         "description": "list llCSV2List( string src );\n\n 196 Function ID\n 0.0 Forced Delay\n 10.0 Energy\n\nThis function takes a string of values separated by commas, and turns it into a list.Returns a list made by parsing src, a string of comma separated values.\n• string src\nTo convert a list into a comma-separated string use llList2CSV.\nDo not confuse this function with the CSV format, it is not the CSV format.\n"
     },
